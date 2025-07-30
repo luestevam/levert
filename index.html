@@ -5,12 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chapa 03 - Renovação e Participação || Condomínio Le Vert Boulevard</title>
-    <!-- Tailwind CSS para um design moderno e responsivo -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts para uma melhor tipografia -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -32,15 +31,20 @@
         .animate-piscar {
             animation: piscar 1.5s infinite;
         }
+
+        /* ESTILOS PARA OS BOTÕES DO CARROSSEL */
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #0d9488;
+            /* Cor principal (teal-600) */
+        }
     </style>
 </head>
 
 <body class="bg-gray-100 text-gray-800">
 
-    <!-- Cabeçalho -->
     <header class="bg-teal-800 text-white p-6 shadow-lg">
         <div class="container mx-auto text-center">
-            <!-- Imagem do logo centralizada -->
             <div class="flex justify-center">
                 <img src="/figura/juntos2.png" alt="Logo Chapa 03" width="200px" />
             </div>
@@ -49,19 +53,16 @@
         </div>
     </header>
 
-    <!-- Alerta da Eleição -->
     <div class="bg-red-600 text-white text-center p-4 font-bold text-xl animate-piscar">
-        ⚠️ ATENÇÃO: A ELEIÇÃO SERÁ DIA <strong>04/08/2025</strong>! PARTICIPE!
+        ⚠️ ATENÇÃO: FALTAM <strong id="countdown"></strong> PARA A ELEIÇÃO DO DIA <strong>04/08/2025</strong>!
+        PARTICIPE!
     </div>
 
-    <!-- Conteúdo Principal -->
     <main class="container mx-auto p-4 md:p-8">
 
-        <!-- Seção de Propostas -->
         <section id="propostas" class="bg-white p-6 rounded-lg shadow-md mb-8">
             <h2 class="text-3xl font-bold text-teal-800 mb-6 border-b-2 border-teal-200 pb-2">📌 Nossas Propostas</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Card de Proposta -->
                 <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
                     <h3 class="text-xl font-semibold text-teal-700 mb-2">🏢 A GESTÃO</h3>
                     <ul class="list-disc list-inside space-y-1 text-gray-700">
@@ -69,34 +70,30 @@
                         <li>Inventário e etiqueta patrimonial.</li>
                         <li>Gestão participativa com prioridades definidas pelos moradores.</li>
                         <li>Canal de comunicação em tempo real com os condôminos.</li>
-                        <li> <strong> <span style="color: red"> Portal da transparência </strong></span> para condôminos do Le Vert acessarem todas as informações
-                            sobre o condomínio em um só lugar com dashboard e gráficos intuitivos.
-                        </li>
-                        
+                        <li> <strong> <span style="color: red"> Portal da transparência </strong></span> para condôminos
+                            do Le Vert acessarem todas as informações sobre o condomínio em um só lugar com dashboard e
+                            gráficos intuitivos.</li>
                     </ul>
                 </div>
-                <!-- Card de Proposta -->
                 <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
                     <h3 class="text-xl font-semibold text-teal-700 mb-2">👤 O SÍNDICO</h3>
                     <ul class="list-disc list-inside space-y-1 text-gray-700">
                         <li>Limitação do poder de gastos do síndico.</li>
                         <li>Decisões em conjunto com conselhos e jurídico.</li>
                         <li>Transparência total nas contratações.</li>
-                       <li>Remuneração do síndico e subsindico sem isenção da taxa ordinária condominal</li>
+                        <li>Remuneração do síndico e subsindico sem isenção da taxa ordinária condominal</li>
                     </ul>
                 </div>
-                <!-- Card de Proposta -->
                 <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
                     <h3 class="text-xl font-semibold text-teal-700 mb-2">💰 FINANÇAS</h3>
                     <ul class="list-disc list-inside space-y-1 text-gray-700">
                         <li>Encerramento do contrato com a garantidora financeira.</li>
                         <li>Revisão de contratos de serviços.</li>
-                        <li>Aprimoramento dos serviços de limpeza, por meio de um estudo de viabilidade que considere custos, qualidade e benefícios
-                        para o condomínio.</li>
+                        <li>Aprimoramento dos serviços de limpeza, por meio de um estudo de viabilidade que considere
+                            custos, qualidade e benefícios para o condomínio.</li>
                         <li>Corte de despesas desnecessárias.</li>
                     </ul>
                 </div>
-                <!-- Card de Proposta -->
                 <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
                     <h3 class="text-xl font-semibold text-teal-700 mb-2">🛠️ MANUTENÇÃO</h3>
                     <ul class="list-disc list-inside space-y-1 text-gray-700">
@@ -106,62 +103,128 @@
                         <li>Acionar a construtora para reparos sob garantia.</li>
                     </ul>
                 </div>
-                <!-- Card de Proposta -->
                 <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
                     <h3 class="text-xl font-semibold text-teal-700 mb-2">🔐 SEGURANÇA</h3>
                     <ul class="list-disc list-inside space-y-1 text-gray-700">
                         <li>Reunião com mães sobre segurança no playground.</li>
                         <li>Controle de acesso com totem, câmeras e reconhecimento facial.</li>
-                        <li>Instalação da clausura de segurança com portões deslizantes com a função antiesmagamento.</li>
+                        <li>Instalação da clausura de segurança com portões deslizantes com a função antiesmagamento.
+                        </li>
                         <li>Estudo para sistemas nobreak nos elevadores.</li>
                     </ul>
                 </div>
-                <!-- Card de Proposta -->
                 <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
                     <h3 class="text-xl font-semibold text-teal-700 mb-2">🏗️ AMBIENTE / INFRAESTRUTURA</h3>
                     <ul class="list-disc list-inside space-y-1 text-gray-700">
                         <li>Cobertura da rampa de acesso.</li>
                         <li>Envidraçamento e decoração do hall.</li>
                         <li>Climatização de áreas comuns. ex: academia e espaço KIDS.</li>
-                         <li>Garagens rotativas para motos (opcional).</li>
+                        <li>Garagens rotativas para motos (opcional).</li>
                         <li>Readequação de vagas para visitantes.</li>
-            </ul>
+                        <li>Estudo para instalação de 2 carregadores para veículos elétricos no estacionamento externo.</li>
+                    </ul>
                 </div>
-
-
             </div>
         </section>
 
-        <!-- Seção de Membros -->
         <section id="membros" class="bg-teal-50 p-6 rounded-lg shadow-md mb-8 border-l-4 border-teal-500">
-            <h2 class="text-3xl font-bold text-teal-800 mb-4">📅 Composição da Chapa 03</h2>
-            <div class="space-y-2 text-gray-700">
-                <p><strong>👩‍⚖️ Síndica:</strong> Ana Lucia Regueira – Parc 401 (Advogada)</p>
-                <p><strong>💻 Subsíndica:</strong> Luciana Estevam – Parc 1003 (Analista de Sistemas)</p>
-                <p><strong>👥 Conselho Consultivo – Titulares:</strong></p>
-                <ul>
-                    <li>Jussara Gomes dos Santos</li>
-                    <li>Marcelo Alcantara Melo</li>
-                    <li>Railton Correa Gomes Filho</li>
-                </ul>
-                <p><strong>💼 Conselho Fiscal – Titulares:</strong></p>
-                <ul>
-                    <li>Mariana Santos da Silva</li>
-                    <li>João Maria Oliveira Santana</li>
-                    <li>Odair Alves de Menezes</li>
-                </ul>
-                <p><strong>🔄 Consultivo Suplente:</strong></p>
-                <ul>
-                    <li>Marcos Antônio Batista Santos</li>
-                </ul>
-                <p><strong>🔄 Fiscal Suplentes:</strong></p>
-                <ul>
-                    <li>Fábio dos Santos Silva</li>
-                    <li>Adilson Menezes Filho</li>
+            <h2 class="text-3xl font-bold text-teal-800 mb-6">📅 Composição da Chapa 03</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                <div class="bg-white p-4 rounded-lg shadow-sm text-center border-t-4 border-teal-600">
+                    <img src="/figura/anaRegueira.jpg" alt="Foto de Ana Lucia Regueira"
+                        class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-gray-200">
+                    <h3 class="text-xl font-bold text-teal-800">Ana Lúcia Regueira Freitas</h3>
+                    <p class="text-gray-600 font-semibold">REPRESENTANTE PARA SÍNDICO</p>
+                    <p class="text-gray-500">Apto 401, Torre Parc</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm text-center border-t-4 border-teal-600">
+                    <img src="/figura/luciana1003parc.jpg" alt="Foto de Luciana da Silva Estevam"
+                        class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-gray-200">
+                    <h3 class="text-xl font-bold text-teal-800">Luciana da Silva Estevam</h3>
+                    <p class="text-gray-600 font-semibold">REPRESENTANTE PARA SUBSÍNDICO</p>
+                    <p class="text-gray-500">Apto 1003, Torre Parc</p>
+                </div>
+            </div>
+            <div class="mb-8">
+                <h3 class="text-2xl font-bold text-teal-700 mb-4 border-b pb-2">Conselho Consultivo</h3>
+                <div class="swiper conselho-consultivo">
+                    <div class="swiper-wrapper pb-8">
+                        <div class="swiper-slide bg-white p-4 rounded-lg shadow-sm text-center">
+                            <img src="URL_DA_FOTO_JUSSARA" alt="Foto de Jussara Gomes"
+                                class="w-20 h-20 rounded-full mx-auto mb-3">
+                            <h4 class="font-semibold text-gray-800">Jussara Gomes Dos Santos</h4>
+                            <p class="text-sm text-gray-500">Apto 1308, Torre Jardin</p>
+                        </div>
+                        <div class="swiper-slide bg-white p-4 rounded-lg shadow-sm text-center">
+                            <img src="/figura/Marcelo.jpg" alt="Foto de Marcelo Ancantara"
+                                class="w-20 h-20 rounded-full mx-auto mb-3">
+                            <h4 class="font-semibold text-gray-800">Marcelo Ancantara De Melo</h4>
+                            <p class="text-sm text-gray-500">Apto 1303, Torre Jardin</p>
+                        </div>
+                        <div class="swiper-slide bg-white p-4 rounded-lg shadow-sm text-center">
+                            <img src="URL_DA_FOTO_RAILTON" alt="Foto de Railton Correa"
+                                class="w-20 h-20 rounded-full mx-auto mb-3">
+                            <h4 class="font-semibold text-gray-800">Railton Correa Gomes Filho</h4>
+                            <p class="text-sm text-gray-500">Apto 502, Torre Parc</p>
+                        </div>
+                        <div class="swiper-slide bg-white p-4 rounded-lg shadow-sm text-center relative">
+                            <span
+                                class="absolute top-2 right-2 bg-yellow-400 text-yellow-800 text-xs font-bold px-2 py-1 rounded-full">SUPLENTE</span>
+                            <img src="URL_DA_FOTO_MARCOS" alt="Foto de Marcos Antônio"
+                                class="w-20 h-20 rounded-full mx-auto mb-3">
+                            <h4 class="font-semibold text-gray-800">Marcos Antônio Batista Santos</h4>
+                            <p class="text-sm text-gray-500">Apto 502, Torre Jardin</p>
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold text-teal-700 mb-4 border-b pb-2">Conselho Fiscal</h3>
+                <div class="swiper conselho-fiscal">
+                    <div class="swiper-wrapper pb-8">
+                        <div class="swiper-slide bg-white p-4 rounded-lg shadow-sm text-center">
+                            <img src="/figura/Marina.jpg" alt="Foto de Mariana Santos"
+                                class="w-20 h-20 rounded-full mx-auto mb-3">
+                            <h4 class="font-semibold text-gray-800">Mariana Santos Da Silva</h4>
+                            <p class="text-sm text-gray-500">Apto 705, Torre Jardin</p>
+                        </div>
+                        <div class="swiper-slide bg-white p-4 rounded-lg shadow-sm text-center">
+                            <img src="URL_DA_FOTO_JOAO" alt="Foto de João Maria"
+                                class="w-20 h-20 rounded-full mx-auto mb-3">
+                            <h4 class="font-semibold text-gray-800">João Maria Oliveira Silva</h4>
+                            <p class="text-sm text-gray-500">Apto 1005, Torre Parc</p>
+                        </div>
+                        <div class="swiper-slide bg-white p-4 rounded-lg shadow-sm text-center">
+                            <img src="URL_DA_FOTO_ODAIR" alt="Foto de Odair Alves"
+                                class="w-20 h-20 rounded-full mx-auto mb-3">
+                            <h4 class="font-semibold text-gray-800">Odair Alves De Menezes</h4>
+                            <p class="text-sm text-gray-500">Apto 401, Torre Boulevard</p>
+                        </div>
+                        <div class="swiper-slide bg-white p-4 rounded-lg shadow-sm text-center relative">
+                            <span
+                                class="absolute top-2 right-2 bg-yellow-400 text-yellow-800 text-xs font-bold px-2 py-1 rounded-full">SUPLENTE</span>
+                            <img src="URL_DA_FOTO_FABIO" alt="Foto de Fábio Dos Santos"
+                                class="w-20 h-20 rounded-full mx-auto mb-3">
+                            <h4 class="font-semibold text-gray-800">Fábio Dos Santos Silva</h4>
+                            <p class="text-sm text-gray-500">Apto 808, Torre Jardin</p>
+                        </div>
+                        <div class="swiper-slide bg-white p-4 rounded-lg shadow-sm text-center relative">
+                            <span
+                                class="absolute top-2 right-2 bg-yellow-400 text-yellow-800 text-xs font-bold px-2 py-1 rounded-full">SUPLENTE</span>
+                            <img src="/figura/Adilson707Jardin.jpg" alt="Foto de Adilson Menezes"
+                                class="w-20 h-20 rounded-full mx-auto mb-3">
+                            <h4 class="font-semibold text-gray-800">Adilson Menezes Filho</h4>
+                            <p class="text-sm text-gray-500">Apto 707, Torre Jardin</p>
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
             </div>
         </section>
 
-        <!-- Seção de Comparativo -->
         <section id="comparativo" class="bg-white p-6 rounded-lg shadow-md mb-8">
             <h2 class="text-3xl font-bold text-teal-800 mb-4">📊 Por que escolher a Chapa 03?</h2>
             <p class="text-lg">As chapas 01 e 02 representam a continuidade das gestões anteriores, sem renovação real.
@@ -169,7 +232,6 @@
                 com a <strong>mudança, transparência e participação ativa</strong> de todos os condôminos.</p>
         </section>
 
-        <!-- Seção de Sugestão -->
         <section id="sugestao" class="bg-blue-100 text-center p-8 rounded-lg shadow-md mb-8">
             <h2 class="text-3xl font-bold text-blue-800 mb-4">💡 Queremos ouvir você!</h2>
             <p class="text-lg mb-6">Suas ideias são essenciais para o nosso projeto. Envie suas sugestões de melhorias
@@ -181,25 +243,82 @@
             </a>
         </section>
 
-        <!-- Imagem Final -->
         <div class="text-center mb-8">
-            <!-- Imagem do logo substituída por um placeholder. Troque o 'src' pelo link da sua imagem. -->
-            <img src="/figura/juntosSeremosMaisForte.png"
-                alt="Logo Futuro Gestão" class="mx-auto max-w-sm w-full rounded-lg shadow-md">
+            <img src="/figura/juntosSeremosMaisForte.png" alt="Logo Futuro Gestão"
+                class="mx-auto max-w-sm w-full rounded-lg shadow-md">
         </div>
 
     </main>
 
-    <!-- Rodapé -->
     <footer class="bg-teal-800 text-white text-center p-6 mt-8">
         <p>Condomínio Le Vert Boulevard © Chapa 03 - 2025/2027</p>
-        <!-- Contador de Visitas -->
         <div class="mt-4">
             <a title='Contador de Visitas do MegaContador' href='https://megacontador.com.br/'>
                 <img src='https://megacontador.com.br/img-HaLLuZzRXqJh090B-9.gif' border='0' alt='Contador de visitas'>
             </a>
         </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        // INICIALIZAÇÃO DO CARROSSEL
+        const swiper_consultivo = new Swiper('.conselho-consultivo', {
+            loop: false,
+            spaceBetween: 16,
+            slidesPerView: 1,
+            breakpoints: {
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+
+        const swiper_fiscal = new Swiper('.conselho-fiscal', {
+            loop: false,
+            spaceBetween: 16,
+            slidesPerView: 1,
+            breakpoints: {
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+
+        // CONTAGEM REGRESSIVA PARA A ELEIÇÃO
+        const electionDate = new Date('2025-08-04T00:00:00-03:00').getTime();
+        const countdownElement = document.getElementById('countdown');
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = electionDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+            let countdownText = "";
+            if (days > 0) countdownText += `${days} DIAS, `;
+            if (hours > 0 || days > 0) countdownText += `${hours} HORAS E `;
+            countdownText += `${minutes} MINUTOS`;
+
+            if (distance < 0) {
+                clearInterval(interval);
+                countdownElement.innerHTML = "A ELEIÇÃO É HOJE";
+            } else {
+                countdownElement.innerHTML = countdownText;
+            }
+        }
+
+        const interval = setInterval(updateCountdown, 60000); // Atualiza a cada minuto
+        updateCountdown(); // Chama a função imediatamente
+    </script>
 
 </body>
 
