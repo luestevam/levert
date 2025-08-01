@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prestação de Contas - Le Vert Boulevard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    @media (max-width: 576px) {
+      .container {
+        padding-left: 2px !important;
+        padding-right: 2px !important;
+      }
+      .card {
+        margin-bottom: 10px;
+      }
+      .btn-block {
+        display: block;
+        width: 100%;
+      }
+      .table-responsive {
+        font-size: 0.95rem;
+      }
+      .mb-4 {
+        margin-bottom: 1rem !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Tela de Login -->
+  <div id="login" class="container py-5">
+    <h2 class="text-center mb-4">Acesso ao Dashboard</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <div class="card p-4 shadow">
+          <form id="loginForm">
+            <div class="mb-3">
+              <label for="torre" class="form-label">Torre</label>
+              <select id="torre" class="form-select" required>
+                <option value="">Selecione...</option>
+                <option value="JARDIN">Jardin</option>
+                <option value="PARC">Parc</option>
+                <option value="BOULEVARD">Boulevard</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="unidade" class="form-label">Nº do apartamento</label>
+              <input type="number" id="unidade" class="form-control" required min="1" max="1310" />
+            </div>
+            <div id="erroLogin" class="text-danger small mb-2" style="display:none;">Dados inválidos! Verifique a torre e unidade.</div>
+            <button type="submit" class="btn btn-primary w-100">Entrar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conteúdo principal (dashboard) escondido inicialmente -->
+  <div id="dashboard" style="display:none">
+    <div class="container py-4">
+      <div class="d-flex flex-column flex-md-row justify-content-end mb-3">
+        <button id="btnPdf" class="btn btn-outline-secondary btn-sm mb-2 mb-md-0" style="width:auto;"><i class="bi bi-file-earmark-pdf"></i> Gerar PDF</button>
+      </div>
+
+    <!-- Cabeçalho -->
+    <header class="mb-4 text-center">
+      <h1 class="mb-1">Le Vert Boulevard</h1>
+      <p class="lead">Prestação de Contas - Junho/2025</p>
+    </header>
+
+    <!-- Indicadores principais -->
+    <div class="row text-white mb-4">
+      <div class="col-12 col-sm-6 col-md-3 mb-2 mb-md-0">
+        <div class="card bg-success">
+          <div class="card-body">
+            <h5 class="card-title">Receitas</h5>
+            <p class="card-text fs-4">R$ 164.778,35</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-3 mb-2 mb-md-0">
+        <div class="card bg-danger">
+          <div class="card-body">
+            <h5 class="card-title">Despesas</h5>
+            <p class="card-text fs-4">R$ 136.483,29</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-3 mb-2 mb-md-0">
+        <div class="card bg-primary">
+          <div class="card-body">
+            <h5 class="card-title">Saldo Final</h5>
+            <p class="card-text fs-4">R$ 193.378,60</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-3 mb-2 mb-md-0">
+        <div class="card bg-warning text-dark">
+          <div class="card-body">
+            <h5 class="card-title">Mov. Líquida</h5>
+            <p class="card-text fs-4">R$ 28.295,06</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gráficos -->
+    <div class="row mb-5">
+      <div class="col-12 col-md-6 mb-3 mb-md-0">
+        <h5 class="text-center mb-3">Distribuição de Despesas</h5>
+        <canvas id="graficoDespesas"></canvas>
+      </div>
+      <div class="col-12 col-md-6 mb-3 mb-md-0">
+        <h5 class="text-center mb-3">Receitas por Tipo</h5>
+        <canvas id="graficoReceitas"></canvas>
+      </div>
+    </div>
+
+    <!-- Tabela detalhada -->
+    <section class="mb-5">
+      <h4 class="mb-3">Resumo Detalhado</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover table-sm">
+          <thead class="table-light">
+            <tr>
+              <th>Categoria</th>
+              <th>Valor (R$)</th>
+            </tr>
+          </thead>
+          <tbody id="tabelaResumo">
+            <!-- Preenchido via script.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="text-center py-4 text-muted small">
+      &copy; 2025 Le Vert Boulevard - Dados extraídos do boleto de Agosto <span style="color: red;">(exemplo)</span> e prestação de contas de Junho.
+        <li>Essa é uma proposta de como iremos implementar uma gestão transparente</li>
+    </footer>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+  <!-- Bootstrap Icons para ícone PDF (opcional) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <script>
+    const form = document.getElementById('loginForm');
+    const erroLogin = document.getElementById('erroLogin');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const torre = document.getElementById('torre').value.toUpperCase();
+      const unidade = parseInt(document.getElementById('unidade').value);
+      const torresValidas = ['JARDIN', 'PARC', 'BOULEVARD'];
+      const unidadeValida = unidade >= 1 && unidade <= 1310;
+      if (torresValidas.includes(torre) && unidadeValida) {
+        document.getElementById('login').style.display = 'none';
+        document.getElementById('dashboard').style.display = 'block';
+      } else {
+        erroLogin.style.display = 'block';
+      }
+    });
+    // Botão PDF
+    document.getElementById('btnPdf').addEventListener('click', function() {
+      window.print();
+    });
+  </script>
+</body>
+</html>

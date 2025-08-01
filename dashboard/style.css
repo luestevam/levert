@@ -1,0 +1,59 @@
+/* Tipografia base */
+body {
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* Títulos */
+h1, h2, h3, h4, h5 {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* Cartões */
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+/* Indicadores de valor */
+.card-body .card-text {
+  font-weight: bold;
+}
+
+/* Gráficos */
+canvas {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Tabela */
+table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+table thead th {
+  background-color: #e9ecef;
+  color: #495057;
+  font-weight: 600;
+}
+
+table tbody tr:hover {
+  background-color: #f1f3f5;
+}
+
+/* Rodapé */
+footer {
+  border-top: 1px solid #dee2e6;
+  margin-top: 40px;
+}
