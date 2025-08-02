@@ -74,7 +74,7 @@ Object.entries(dadosFinanceiros.despesas).forEach(([categoria, valor]) => {
   const linha = document.createElement('tr');
   linha.innerHTML = `
     <td>${categoria}</td>
-    <td>R$ ${valor.toFixed(2).replace('.', ',')}</td>
+    <td>R$ ${valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
   `;
   tbody.appendChild(linha);
 });
