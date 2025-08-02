@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sugestão - Condomínio Le Vert Boulevard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+<body class="bg-blue-50 min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+        <h1 class="text-2xl font-bold text-blue-800 mb-6 text-center">💡 Envie sua Sugestão</h1>
+        <form id="sugestaoForm" class="space-y-4">
+            <div>
+                <label class="block text-gray-700 font-semibold mb-1" for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" required class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+            <div>
+                <label class="block text-gray-700 font-semibold mb-1" for="torre">Torre</label>
+                <input type="text" id="torre" name="torre" required class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+            <div>
+                <label class="block text-gray-700 font-semibold mb-1" for="apartamento">Apartamento</label>
+                <input type="text" id="apartamento" name="apartamento" required class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+            <div>
+                <label class="block text-gray-700 font-semibold mb-1" for="sugestao">Sugestão</label>
+                <textarea id="sugestao" name="sugestao" rows="4" required class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg text-lg transition-colors">Enviar pelo WhatsApp</button>
+        </form>
+        <div class="text-center mt-6">
+            <a href="index.html" class="text-blue-600 hover:underline">&larr; Voltar para o site</a>
+        </div>
+    </div>
+    <script>
+        document.getElementById('sugestaoForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nome = document.getElementById('nome').value;
+            const torre = document.getElementById('torre').value;
+            const apto = document.getElementById('apartamento').value;
+            const sugestao = document.getElementById('sugestao').value;
+            const numero = '557999885277'; // Número do WhatsApp com DDD e sem espaços
+            const mensagem = encodeURIComponent(`Olá! Meu nome é ${nome}, Torre ${torre}, Apartamento ${apto}.\nMinha sugestão: ${sugestao}`);
+            window.open(`https://wa.me/${numero}?text=${mensagem}`, '_blank');
+        });
+    </script>
+</body>
+</html>
